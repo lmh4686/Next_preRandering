@@ -44,14 +44,15 @@ export async function getStaticProps(context) {
   };
 }
 
+//Which pages should be pre-generated
 export async function getStaticPaths() {
   const data = await getData();
   const ids = data.products.map((p) => p.id);
   const pathsWithParams = ids.map((id) => ({ params: { pid: id } }));
 
   return {
-    //How many pages should be pre-generated
-    //Should be the form of [{},{},..]
+    //Which pages should be pre-generated
+    //Should be the form of [{params:{}},{params:{}},..]
     paths: pathsWithParams,
     //All pages(false)? or only selected pages in the path and others generated on the request(true)?
     //Wait for all pages being generated('blocking')
