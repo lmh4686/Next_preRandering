@@ -54,7 +54,8 @@ export async function getStaticPaths() {
     //Which pages should be pre-generated
     //Should be the form of [{params:{}},{params:{}},..]
     paths: pathsWithParams,
-    //All pages(false)? or only selected pages in the path and others generated on the request(true)?
+    //All selected pages and not accept any other pages(false)? 
+    //or all selected pages in the path and others generated on the request(true)?
     //Wait for all pages being generated('blocking')
     fallback: true,
   };
